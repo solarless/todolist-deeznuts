@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const { router } = require("./routes");
 const { DSN } = require("./database");
@@ -7,6 +8,7 @@ const { DSN } = require("./database");
 async function main() {
     const app = express();
 
+    app.use(cors());
     app.use(bodyParser.json());
     app.use(router);
 
