@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const { router } = require("./routes");
-const { DSN } = require("./database");
+const { DSN } = require("./config");
 
 async function main() {
     const app = express();

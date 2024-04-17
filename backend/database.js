@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-const DSN = "mongodb://localhost:27017/todolist";
-
 const Task = mongoose.model("Task", {
     title: String,
     isDone: Boolean,
@@ -25,7 +23,6 @@ async function deleteTask(id) {
 }
 
 module.exports = {
-    DSN,
     findAllTasks,
     createTask,
     updateTask,
