@@ -1,0 +1,8 @@
+services:
+  database:
+    image: mongo
+    container_name: todolist-database
+    volumes:
+      - ./backend/.data:/data/db
+    ports:
+      - 27017:27017

@@ -1,13 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const { router } = require("./routes");
-const { database } = require("./database");
+const { DSN } = require("./database");
 
-const app = express();
+async function main() {
+    const app = express();
 
-app.use(bodyParser.json());
-app.use(router);
+    app.use(bodyParser.json());
+    app.use(router);
 
-database.sync();
+    await mongoose.connect(DSN)
+    app.listen(5000);
+}
 
-app.listen(5000);
+main();
